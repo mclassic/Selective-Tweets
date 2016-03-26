@@ -14,8 +14,7 @@ $controller->requireLogin();
 $fb = $controller->getFacebook();
 
 if (!$controller->getCanPostToPages()) {
-	$url = $fb->getLoginURL(array('redirect_uri' => 'https://apps.facebook.com/selectivestatus/pages', 'scope' => 'publish_stream,manage_pages'));
-	$controller->redirect($url);
+	$controller->redirectToLogin('pages');
 }
 
 $pages = $controller->getUserPages();
@@ -75,10 +74,10 @@ if ($pages) {
 		foreach ($pages as $page) {
 			echo '<tr>';
 			echo '<td>';
-			echo '<img src="https://graph.facebook.com/' . _h($page['id']) . '/picture?type=square&amp;return_ssl_resources=1" width="50" height="50"/>';
+			echo '<img src="https://graph.facebook.com/' . _h($page->id) . '/picture?type=square&amp;return_ssl_resources=1" width="50" height="50"/>';
 			echo '</td>';
-			echo '<td><a href="http://www.facebook.com/pages/blah/' . _h($page['id']) . '">' .  _h($page['name']) . '</a></td>';
-			echo '<td><div class="input-prepend"><span class="add-on">@</span><input type="text" name="username' . _h($page['id']) . '" value="' . _h($page['twitterid']) . '"></div></td>';
+			echo '<td><a href="http://www.facebook.com/pages/blah/' . _h($page->id) . '">' .  _h($page->name) . '</a></td>';
+			echo '<td><div class="input-prepend"><span class="add-on">@</span><input type="text" name="username' . _h($page->id) . '" value="' . _h($page->twitterid) . '"></div></td>';
 			echo '</tr>';
 		}
 		echo '</table>';
