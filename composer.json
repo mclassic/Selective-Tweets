@@ -1,4 +1,14 @@
 {
+  "name": "andyyoung/Selective-Tweets",
+  "description": "",
+  "license": "MIT",
+  "homepage": "https://apps.facebook.com/selectivetwitter",
+  "authors": [
+    {
+      "name": "Andy Young",
+      "email": "andy@apexa.co.uk"
+    }
+  ],
   "require" : {
     "facebook/php-sdk-v4" : "4.0.*",
     "fennb/phirehose": "1.0.*"
